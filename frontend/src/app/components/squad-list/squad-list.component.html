@@ -1,0 +1,43 @@
+<section class="container">
+    <h2>Squad list</h2>
+
+    <table class="table">
+        <tr class="table_head">
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        <tr class="table_content" *ngFor="let p of squad; let id=index">
+            <td>{{id}}</td>
+            <td>{{p.nome}}</td>
+            <td>{{p.email}}</td>
+            <td><button class="btn_edit" (click)="openModal(p.id, p.nome, p.email)"><i
+                        class="bi bi-pencil-square"></i></button>
+                <button class="btn_remove" (click)="deleteMember(p.id)"><i class="bi bi-trash"></i></button>
+            </td>
+        </tr>
+        <div [ngClass]="{'edit': update == true}">
+            <ng-container *ngIf="update">
+                <img class="img" src="" alt="">
+                <input type="text" name="nome" id="" placeholder="Nome completo" [(ngModel)]="member1.nome">
+                <input type="text" name="" id="" placeholder="Email" [(ngModel)]="member1.email">
+                <div class="container_btn">
+                    <button class="salvar" (click)="editMember(id)">Save</button>
+                    <button class="close" (click)="closeModal()"></button>
+                </div>
+            </ng-container>
+        </div>
+    </table>
+    <div class="adicionar">
+        <form (ngSubmit)="addMember()" *ngIf="mostrar" [formGroup]="momentForm" #formDir="ngForm">
+            <input class="input" type="text" placeholder="Nome completo" formControlName="title" required>
+            <div class="warning" *ngIf="(title.invalid || email.invalid )&& formDir.submitted">Nome e Email obrigatorios
+            </div>
+            <input class="input" type="text" placeholder="Nome completo" formControlName="email" required>
+            <input type="submit" class="salvar">
+        </form>
+        <button (click)="toggle()"
+            [ngClass]="{ 'add': mostrar == false, 'close': mostrar == true}">{{buttonValue}}</button>
+    </div>
+</section>

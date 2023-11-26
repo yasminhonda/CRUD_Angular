@@ -1,0 +1,39 @@
+@mixin title {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #3b3b3b;
+}
+
+@mixin subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #5d6a92;
+  border-bottom: 1px solid #5d6a92;
+  padding-bottom: 0.2rem;
+}
+
+@mixin button_save {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #726bae;
+  border: none;
+  color: #ffffff;
+  border-radius: 0.4rem;
+
+  &:hover {
+    box-shadow: 5px 10px 20px rgb(82, 67, 133) inset;
+  }
+}
+
+@mixin button_close {
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  background-color: #ae6b6b;
+  border: none;
+  color: #ffffff;
+  border-radius: 0.4rem;
+
+  &:hover {
+    box-shadow: 5px 10px 20px rgb(133, 67, 67) inset;
+  }
+}

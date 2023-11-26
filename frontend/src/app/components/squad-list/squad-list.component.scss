@@ -1,0 +1,167 @@
+@import "src/variables";
+
+.container {
+  background-color: #ffffff;
+  border: 1.5px solid #bbc5dc;
+  border-radius: 0.4rem;
+  padding: 2rem;
+}
+
+h2 {
+  @include subtitle;
+}
+
+.table {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+
+  &_head {
+    padding: 3rem;
+    border-bottom: 1.5px solid #a9a9a9;
+
+    th {
+      padding: 0.5rem;
+    }
+  }
+
+  &_content {
+    text-align: center;
+
+    td {
+      padding: 1rem;
+    }
+
+    &:nth-child(even) {
+      background: rgb(235, 235, 235);
+    }
+  }
+
+  .btn_edit {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #aead6b;
+    border: none;
+    color: #ffffff;
+    border-radius: 0.4rem;
+    margin-right: 1rem;
+
+    &:hover {
+      box-shadow: 5px 10px 20px rgb(128, 133, 67) inset;
+    }
+  }
+  .btn_remove {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #ae6b6b;
+    border: none;
+    color: #ffffff;
+    border-radius: 0.4rem;
+    margin-right: 1rem;
+
+    &:hover {
+      box-shadow: 5px 10px 20px rgb(133, 67, 67) inset;
+    }
+  }
+
+  .edit {
+    z-index: 1;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    top: 30%;
+    left: 50%;
+    padding: 2rem;
+    border: 1.5px solid #a69e9e;
+    border-radius: 0.4rem;
+    align-items: center;
+
+    .img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      background-color: #a69e9e;
+      margin-bottom: 2rem;
+    }
+
+    input {
+      margin-bottom: 2rem;
+    }
+
+    .container_btn {
+      margin-top: 2rem;
+      .close {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
+.adicionar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  form {
+    display: flex;
+    text-align: end;
+    justify-content: flex-end;
+    width: 100%;
+    position: relative;
+  }
+  .warning {
+    position: absolute;
+    left: 50%;
+    translate: -18rem 30px;
+    font-size: 1.3rem;
+    color: red;
+  }
+  .input {
+    margin-right: 2rem;
+    height: 2rem;
+    width: 30%;
+    height: 3rem;
+    padding: 1rem;
+    border: none;
+    border-bottom: 1.2px solid #000000;
+    background-color: #9194b768;
+    color: #000000;
+
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+
+  .add {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #6bae76;
+    border: none;
+    color: #ffffff;
+    border-radius: 0.4rem;
+
+    &:hover {
+      box-shadow: 5px 10px 20px rgb(78, 133, 67) inset;
+    }
+  }
+
+  .close {
+    margin-left: 2rem;
+  }
+}
+
+.add::before {
+  content: "Add";
+}
+
+.close::before {
+  content: "Close";
+}
+
+.salvar {
+  @include button_save;
+}
+
+.close {
+  @include button_close;
+}
